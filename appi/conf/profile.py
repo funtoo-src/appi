@@ -51,6 +51,8 @@ class Profile(AppiObject):
                         repo = Repository.get_main_repository()
                     else:
                         repo = Repository.get(repo_name)
+                    if not repo:
+                        continue
                     path = repo['location'] / 'profiles' / path
                 elif path[0] != '/':
                     path = base_dir / path
